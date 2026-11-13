@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-5 mb-4">
+    <h2>Contacto</h2>
+    <p>¿Tienes alguna duda o quieres sugerirnos una película? Escríbenos.</p>
+    <p class="mb-1"><strong>Correo:</strong> contacto&#64;cineresenas.com</p>
+    <p class="mb-1"><strong>Teléfono:</strong> 300 000 0000</p>
+    <p><strong>Ciudad:</strong> Bogotá, Colombia</p>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-7">
+    @if (enviado) {
+      <div class="alert alert-success">¡Gracias por escribirnos! Pronto te responderemos.</div>
+    }
+    <form (ngSubmit)="enviar()">
+      <input type="text" name="nombre" class="form-control mb-2" placeholder="Tu nombre" [(ngModel)]="nombre" required>
+      <input type="email" name="correo" class="form-control mb-2" placeholder="Tu correo" [(ngModel)]="correo" required>
+      <textarea name="mensaje" class="form-control mb-2" rows="4" placeholder="Tu mensaje" [(ngModel)]="mensaje" required></textarea>
+      <button type="submit" class="btn btn-dark">Enviar</button>
+    </form>
+  </div>
+</div>

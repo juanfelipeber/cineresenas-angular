@@ -1,0 +1,49 @@
+// ===== VARIABLES SASS =====
+$color-fondo: #f4f4f4;
+$color-principal: #212529;
+$color-blanco: #ffffff;
+$alto-portada: 340px;
+$velocidad: 0.2s;
+$id-detalle: "vista-detalle";
+$lado-borde: left;
+
+body {
+  background-color: $color-fondo;
+}
+
+// ===== ANIDACIÓN DE SELECTORES =====
+.tarjeta {
+  cursor: pointer;
+  transition: transform $velocidad, box-shadow $velocidad;
+
+  img {
+    height: $alto-portada;
+    object-fit: cover;
+  }
+
+  .card-title {
+    color: $color-principal;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba($color-principal, 0.35);
+  }
+}
+
+// ===== INTERPOLACIÓN =====
+##{$id-detalle} {
+  img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+  }
+}
+
+.comentario {
+  background-color: $color-blanco;
+  border-#{$lado-borde}: 4px solid $color-principal;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}

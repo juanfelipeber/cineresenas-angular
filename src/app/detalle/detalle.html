@@ -1,0 +1,43 @@
+<section id="vista-detalle">
+  <a routerLink="/" class="btn btn-outline-dark mb-3">← Volver al listado</a>
+
+  @if (pelicula; as p) {
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
+        <img [src]="p.imagen" class="rounded" alt="Portada de {{ p.titulo }}"
+             (error)="$any($event.target).src = 'https://placehold.co/300x450/212529/ffffff?text=Sin+imagen'">
+      </div>
+      <div class="col-12 col-sm-12 col-md-8">
+        <h2>{{ p.titulo }}</h2>
+        <p class="text-muted">{{ p.fecha }} | {{ p.genero }} | Dirección: {{ p.director }}</p>
+        <h5>Sinopsis</h5>
+        <p>{{ p.sinopsis }}</p>
+        <h5>Actores</h5>
+        <p>{{ p.actores.join(', ') }}</p>
+        <h5>Reseña</h5>
+        <p>{{ p.resena }}</p>
+        <p><strong>Calificación:</strong> ⭐ {{ p.calificacion }} / 10</p>
+      </div>
+    </div>
+
+    <hr>
+    <h4>Comentarios</h4>
+
+    @for (c of lista; track $index) {
+      <div class="comentario">
+        <strong>{{ c.nombre }}</strong>
+        <p class="mb-0">{{ c.texto }}</p>
+      </div>
+    } @empty {
+      <p class="text-muted">Todavía no hay comentarios. ¡Sé el primero!</p>
+    }
+
+    <form class="mt-3" (ngSubmit)="comentar()">
+      <input type="text" name="nombre" class="form-control mb-2" placeholder="Tu nombre" [(ngModel)]="nombre" required>
+      <textarea name="texto" class="form-control mb-2" rows="3" placeholder="Escribe tu opinión sobre la película" [(ngModel)]="texto" required></textarea>
+      <button type="submit" class="btn btn-dark">Comentar</button>
+    </form>
+  } @else {
+    <p class="text-muted">La película que buscas no existe.</p>
+  }
+</section>

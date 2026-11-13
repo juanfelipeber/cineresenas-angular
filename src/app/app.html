@@ -1,0 +1,20 @@
+<header class="bg-dark text-white py-3 mb-4">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div>
+      <h1 class="h3 m-0">🎬 CineReseñas</h1>
+      <small>Encuentra la próxima película que quieres ver</small>
+    </div>
+    <nav>
+      <a routerLink="/" routerLinkActive="fw-bold" [routerLinkActiveOptions]="{ exact: true }" class="text-white me-3">Inicio</a>
+      <a routerLink="/contacto" routerLinkActive="fw-bold" class="text-white">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <router-outlet />
+</main>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <small>CineReseñas - Actividad Front-end</small>
+</footer>
